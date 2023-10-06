@@ -96,6 +96,34 @@ contract("PropertyPAD", (accounts) => {
 
     });
 
+
+    it("should allow admin to withdraw funds after a successful raise", async () => {
+
+        // Check initial contract balance
+        const initialBalance = await raiseToken.balanceOf(propertyPAD.address);
+
+        // Check admin's initial balance
+        const initialAdminBalance = await raiseToken.balanceOf(admin);
+    
+        
+        // Admin withdraws funds
+        const tx = await propertyPAD.withdrawFunds({ from: admin });
+        
+        // Check if the event was emitted
+        truffleAssert.eventEmitted(tx, 'FundsWithdrawn', (ev) => {
+            return ev.admin === admin && ev.amount.eq(new web3.utils.BN(initialBalance));
+        });
+        
+        // Check that the contract balance is now 0
+        const finalBalance = await raiseToken.balanceOf(propertyPAD.address);
+        assert.equal(finalBalance.toString(), "0", "Contract balance should be 0 after withdrawal");
+
+        // Check that the admin's balance increased by the initial balance of the contract
+        const finalAdminBalance = await raiseToken.balanceOf(admin);
+        assert.equal(finalAdminBalance.toString(), initialAdminBalance.add(initialBalance).toString(), "Admin's balance should increase by the amount withdrawn");
+
+    });
+
     it("should not allow participation outside of the raise window", async () => {
         await propertyPAD.setRaiseParameters(raiseToken.address, 1000, Date.now() + 7200, Date.now() + 10800, 10, 500, { from: admin });
         await raiseToken.approve(propertyPAD.address, userpartecipation, { from: user1 });
@@ -114,6 +142,9 @@ contract("PropertyPAD", (accounts) => {
         // Participation above max limit should fail
         await assertRevert(propertyPAD.participate(600, { from: user1 }));
     });
+
+
+
 
     it("should restrict admin-only functions", async () => {
         // This should fail since user1 is not the admin

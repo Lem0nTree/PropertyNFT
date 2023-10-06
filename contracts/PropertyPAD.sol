@@ -39,6 +39,8 @@ contract PropertyPAD is ReentrancyGuard {
     event Participated(address indexed user, uint256 amount);
     event ClaimedBack(address indexed user, uint256 amount);
     event PropertyNFTClaimed(address indexed user, uint256 tokenId);
+    event FundsWithdrawn(address indexed admin, uint256 amount);
+
 
     /**
      * @dev Modifier to check if the caller is the admin.
@@ -183,5 +185,20 @@ contract PropertyPAD is ReentrancyGuard {
         }
         isRaiseFinalized = true;
 
+    }
+
+    /**
+    * @dev Allows the admin to withdraw the raised tokens after a successful raise.
+    */
+    function withdrawFunds() external onlyAdmin {
+        require(isRaiseFinalized, "Raise not yet finalized");
+        require(raiseSuccessful, "Raise was not successful");
+        
+        uint256 balance = raiseToken.balanceOf(address(this));
+        require(balance > 0, "No funds to withdraw");
+
+        raiseToken.transfer(admin, balance);
+        
+        emit FundsWithdrawn(admin, balance);
     }
 }
