@@ -333,13 +333,13 @@
     "absolutePath": "@openzeppelin/contracts/interfaces/IERC4906.sol",
     "exportedSymbols": {
       "IERC165": [
-        2351
+        3028
       ],
       "IERC4906": [
         24
       ],
       "IERC721": [
-        1148
+        1825
       ]
     },
     "id": 25,
@@ -392,7 +392,7 @@
                 "248:7:1"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2351,
+              "referencedDeclaration": 3028,
               "src": "248:7:1"
             },
             "id": 9,
@@ -407,7 +407,7 @@
                 "257:7:1"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1148,
+              "referencedDeclaration": 1825,
               "src": "257:7:1"
             },
             "id": 11,
@@ -428,8 +428,8 @@
         "id": 24,
         "linearizedBaseContracts": [
           24,
-          1148,
-          2351
+          1825,
+          3028
         ],
         "name": "IERC4906",
         "nameLocation": "236:8:1",
@@ -570,9 +570,9 @@
         "usedEvents": [
           16,
           23,
-          1047,
-          1056,
-          1065
+          1724,
+          1733,
+          1742
         ]
       }
     ],
@@ -584,7 +584,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-10-05T00:49:31.358Z",
+  "updatedAt": "2023-10-05T15:51:58.592Z",
   "devdoc": {
     "events": {
       "Approval(address,address,uint256)": {

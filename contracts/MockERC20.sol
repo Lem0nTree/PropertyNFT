@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 // contracts/MockERC20.sol
 
 pragma solidity ^0.8.0;

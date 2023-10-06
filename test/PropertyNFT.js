@@ -8,7 +8,7 @@ const propertyNames = ["LosAngeles", "LosAngeles", "NewYork"];
 const apr = [30, 30, 10];
 const totalPropertyRaised = [100000, 100000, 50000];
 const propertyParticipation = [50000, 1000, 10000];
-const launchpadID = [1, 1, 2];
+const propertyID = [1, 1, 2];
 const redeemFees = [10, 10, 15];
 const sellFees = [5, 5, 3];
 const totalEarned = [0, 0, 0];
@@ -63,7 +63,7 @@ contract("PropertyNFT", (accounts) => {
     it(chalk.green("should allow Bob to mint a new property and verify"), async () => {
         await contractInstance.mintProperty(
             bob, propertyNames[0], apr[0], totalPropertyRaised[0], 
-            propertyParticipation[0], launchpadID[0], redeemFees[0], 
+            propertyParticipation[0], propertyID[0], redeemFees[0], 
             sellFees[0], totalEarned[0], {from: bob}
         );
         
@@ -77,7 +77,7 @@ contract("PropertyNFT", (accounts) => {
         // console.log("Total Property Raised:", property.totalPropertyRaised.toNumber());
         // console.log("Property Participation:", property.propertyParticipation.toNumber());
         // console.log("Property Percentage:", property.propertyParticipation.toNumber() / property.totalPropertyRaised.toNumber() *100 + "%");
-        // console.log("Launchpad ID:", property.launchpadID.toNumber());
+        // console.log("Launchpad ID:", property.propertyID.toNumber());
         // console.log("Redeem Fees:", property.redeemFees.toNumber());
         // console.log("Sell Fees:", property.sellFees.toNumber());
         // console.log("Total Earned:", property.totalEarned.toNumber());
@@ -87,7 +87,7 @@ contract("PropertyNFT", (accounts) => {
         assert.equal(property.apr.toNumber(), apr[0]);
         assert.equal(property.totalPropertyRaised.toNumber(), totalPropertyRaised[0]);
         assert.equal(property.propertyParticipation.toNumber(), propertyParticipation[0]);
-        assert.equal(property.launchpadID.toNumber(), launchpadID[0]);
+        assert.equal(property.propertyID.toNumber(), propertyID[0]);
         assert.equal(property.redeemFees.toNumber(), redeemFees[0]);
         assert.equal(property.sellFees.toNumber(), sellFees[0]);
         assert.equal(property.totalEarned.toNumber(), totalEarned[0]);
@@ -96,7 +96,7 @@ contract("PropertyNFT", (accounts) => {
     it(chalk.green("should mint a new NFT from same launchpad to enea"), async () => {
         await contractInstance.mintProperty(
             enea, propertyNames[1], apr[1], totalPropertyRaised[1], 
-            propertyParticipation[1], launchpadID[1], redeemFees[1], 
+            propertyParticipation[1], propertyID[1], redeemFees[1], 
             sellFees[1], totalEarned[1], {from: bob}
         );
         const tokenId = await contractInstance.totalSupply();
@@ -109,7 +109,7 @@ contract("PropertyNFT", (accounts) => {
         // console.log("Total Property Raised:", property.totalPropertyRaised.toNumber());
         // console.log("Property Participation:", property.propertyParticipation.toNumber());
         // console.log("Property Percentage:", property.propertyParticipation.toNumber() / property.totalPropertyRaised.toNumber() *100 + "%");
-        // console.log("Launchpad ID:", property.launchpadID.toNumber());
+        // console.log("Launchpad ID:", property.propertyID.toNumber());
         // console.log("Redeem Fees:", property.redeemFees.toNumber());
         // console.log("Sell Fees:", property.sellFees.toNumber());
         // console.log("Total Earned:", property.totalEarned.toNumber());
@@ -135,7 +135,7 @@ contract("PropertyNFT", (accounts) => {
 
 
     it(chalk.green("should get tokenIDs for same launchpad who generated the NFTs"), async () => {
-        const tokensForLaunchpad1  = await contractInstance.getTokensByLaunchpadID(1);
+        const tokensForLaunchpad1  = await contractInstance.getTokensBypropertyID(1);
         assert.equal(tokensForLaunchpad1.length, 2, "Should have 2 tokens for launchpad ID 1");
         // console.log("Tokens for Launchpad ID 1:", tokensForLaunchpad1.map(id => id.toNumber()));
         const convertedTokens = tokensForLaunchpad1.map(id => id.toNumber());
