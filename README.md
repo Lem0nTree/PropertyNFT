@@ -9,7 +9,8 @@ Allow to partecipate in a launchpad to acquire a real property and receive NFT t
 HARDCAP mode. Admin sets a target to raise, time to contribute, minimum contribution amount and max contribution amount. Users can participate in the launchpad allocating USDT. At the end of the launchpad , if the hardcap is not reached users can claim back their USDT token. If the hardcap is reached users will be able to mint NFT linked to this specific launchpad with data of the invested amount and ROI.
 
 **PropertyNFT**
-the NFT should have some custom data build inside such as:
+
+NFT have some custom data build inside such as:
   * Real Estate data
   * APR guarantee
   * Amount participated in the launchpad
@@ -23,7 +24,8 @@ the NFT should have some custom data build inside such as:
 It also feature a function “DistribuiteRewards” function that allow admin to distribute monthly APR rewards to specific propertyID based on users partecipations.
 
 
-**Redeem Contract **
+**Redeem Contract**
+
 Where users can burn their NFT to get back appreciation. Fees are applied. Admin will topup the contract with the USDT from the sale of the property, and users will be able to claim their % based on the invested amount in the launchpad. 
 
 
