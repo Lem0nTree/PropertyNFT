@@ -300,7 +300,17 @@ contract PropertyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, ReentrancyGu
     * @notice Only callable by an address with the RedeemPad role.
     */
     function burnTokenWithApproval(uint256 tokenId) external onlyRedeemer {
-        require(ownerOf(tokenId) == msg.sender || isApprovedForAll(ownerOf(tokenId), msg.sender), "Not approved to burn");
+        address tokenOwner = ownerOf(tokenId);
+
+        // Check if the token owner has specifically approved the msg.sender (PropertyREDEEM contract) for this token
+        bool isSpecificallyApproved = getApproved(tokenId) == msg.sender;
+
+        require(
+            tokenOwner == msg.sender || 
+            isApprovedForAll(tokenOwner, msg.sender) || 
+            isSpecificallyApproved,
+            "Not approved to burn"
+        );
         _burn(tokenId);
     }
 

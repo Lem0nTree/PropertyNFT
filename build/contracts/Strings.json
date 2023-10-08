@@ -18,7 +18,7 @@
         3894
       ],
       "SignedMath": [
-        3999
+        4311
       ],
       "Strings": [
         2992
@@ -58,7 +58,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 2993,
-        "sourceUnit": 4000,
+        "sourceUnit": 4312,
         "src": "152:31:16",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1057,10 +1057,10 @@
                                     "name": "SignedMath",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 3999,
+                                    "referencedDeclaration": 4311,
                                     "src": "1385:10:16",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_type$_t_contract$_SignedMath_$3999_$",
+                                      "typeIdentifier": "t_type$_t_contract$_SignedMath_$4311_$",
                                       "typeString": "type(library SignedMath)"
                                     }
                                   },
@@ -1072,7 +1072,7 @@
                                   "memberLocation": "1396:3:16",
                                   "memberName": "abs",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 3998,
+                                  "referencedDeclaration": 4310,
                                   "src": "1385:14:16",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_internal_pure$_t_int256_$returns$_t_uint256_$",
@@ -3192,7 +3192,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-10-05T15:51:58.645Z",
+  "updatedAt": "2023-10-06T23:27:46.590Z",
   "devdoc": {
     "details": "String operations.",
     "kind": "dev",

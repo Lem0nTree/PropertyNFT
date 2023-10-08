@@ -411,7 +411,7 @@
         3894
       ],
       "SignedMath": [
-        3999
+        4311
       ],
       "Strings": [
         2992
@@ -2352,7 +2352,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-10-05T15:51:58.633Z",
+  "updatedAt": "2023-10-06T23:27:46.580Z",
   "devdoc": {
     "details": "ERC721 token with storage based token URI management.",
     "events": {
