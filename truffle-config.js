@@ -1,9 +1,9 @@
 
 require('dotenv').config();
-const PROJECT_ID = "d8ba8e4375f44c5b9b17d46b653257e3";
+const PROJECT_ID = "$INFURAID";
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const MNEMONIC = "lunch echo spoil nut remove cupboard twice circle mango good right beauty";
-const ETHERSCAN_API_KEY ="15UGYN4982V186RA5UCINQDA6U7BRKC4BX";
+const MNEMONIC = "$SEED";
+const ETHERSCAN_API_KEY ="$APYKEY";
 
 module.exports = {
   networks: {
